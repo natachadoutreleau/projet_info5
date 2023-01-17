@@ -2,7 +2,7 @@
 #define NULL std::nullptr
 
 String::String(){
-    string_ = "Hello";
+    string_ = "Hello Wolrd";
     size_ = 11;
 }
 
