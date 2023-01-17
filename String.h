@@ -4,7 +4,7 @@
 class String{
 public:
 
-    String();/*
+    String();
     String(const String &other); //copy constructor
     String(const char* cstring); // constructor from a c-string
     ~String();
@@ -23,7 +23,6 @@ public:
     String & operator=(const String& str);
     String & operator=(const char* c);
 
-*/
     protected :
     const char *  string_;
     int size_ ;
