@@ -25,13 +25,13 @@ public:
 
 */
     protected :
-    const char *  string_;
-    int size_ ;
-    int max_size_=100;
+        char* string_[15] ;
+        int size_ ;
+        int max_size_=100;
 };
-
+/*
 String operator+(const String& str, const char* c);
 String operator+(const String& str , char c);
 String operator+( const String& str, const String& str2);
-
+*/
 #endif

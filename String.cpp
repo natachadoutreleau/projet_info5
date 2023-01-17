@@ -2,20 +2,27 @@
 #define NULL std::nullptr
 
 String::String(){
-    string_ = "Hello Wolrd";
-    size_ = 11;
+    
+    //string_ = new char[15];
+    for(int i=0;i<sizeof("Hello World");i++)
+        *string_[i] = "Hello World"[i];
+    size_ = sizeof("Hello World");
 }
 
 /*
 String::String(const String &other){
 
 }
-
+*/
+/*
 String::String(const char* cstring) {
-
+ //faire vérification de la taille aumenter capacité
+    for(int i=0;i<sizeof(cstring);i++)
+        *string_[i] = csting[i];
+    size = sizeof(cstring);
 }
-
-
+*/
+/*
 String::~String(){
 }
 
@@ -79,3 +86,4 @@ String operator+(const String& str , char c){
 String operator+(const String& str, const String& str2){
 
 }
+*/
