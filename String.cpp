@@ -1,7 +1,12 @@
 #include "String.h"
+#define NULL std::nullptr
 
+String::String(){
+    string_ = "Hello Wolrd";
+    size_ = 11;
+}
 
-
+/*
 String::String(const String &other){
 
 }

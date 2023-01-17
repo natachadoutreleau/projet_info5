@@ -1,10 +1,10 @@
 #ifndef STRING_H_
 #define STRING_H_
 
-
 class String{
 public:
 
+    String();/*
     String(const String &other); //copy constructor
     String(const char* cstring); // constructor from a c-string
     ~String();
@@ -19,12 +19,13 @@ public:
     bool empty();
     void reserve(int size_t);
 
-    String& operator=(char c);
-    String& operator=(const String& str);
-    String& operator=(const char* c);
+    String & operator=(char c);
+    String & operator=(const String& str);
+    String & operator=(const char* c);
 
+*/
     protected :
-    char* string_;
+    const char *  string_;
     int size_ ;
     int max_size_=100;
 };
