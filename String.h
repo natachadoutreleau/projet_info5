@@ -1,6 +1,6 @@
 #ifndef STRING_H_
 #define STRING_H_
-
+/*
 class String{
 public:
 
@@ -13,24 +13,24 @@ public:
     void clear();
     int length();
     int max_size();
-    void resize(size_t, char);
+    void resize(int size_t, char c);
     int capacity();
     bool empty();
-    void reserve(size_t);
+    void reserve(int size_t);
 
-    String & operator=(char);
-    String & operator=(const string&);
-    String & operator=(const char*);
+    String & operator=(char c);
+    String & operator=(const String& str);
+    String & operator=(const char* c);
 
-    String operator+(const string&, const char*);
-    String operator+(const string&, char);
-    String operator+(const string&, const string&);
+    String operator+(const String& str, const char* c);
+    String operator+(const String& str , char c);
+    String operator+(const String& str, const String& str);
 
     protected :
     char* string_;
     int size_ ;
-    int max_size=100; 
+    int max_size=100;
 }
 
-
+*/
 #endif
