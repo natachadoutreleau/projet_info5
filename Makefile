@@ -1,8 +1,9 @@
 CXXFLAGS = -Wall
 
-objects = String.o string_tests.o main.o
+objects = String.o string_tests.o main.o bin
 
-
+bin : main.o string_tests.o String.o
+	g++ main.o string_tests.o String.o -o bin
 
 main.o: main.cpp string_tests.h String.h
 	g++ -o main.o -c main.cpp
