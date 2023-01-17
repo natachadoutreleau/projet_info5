@@ -1,6 +1,7 @@
 #ifndef STRING_H_
 #define STRING_H_
-/*
+
+
 class String{
 public:
 
@@ -18,19 +19,18 @@ public:
     bool empty();
     void reserve(int size_t);
 
-    String & operator=(char c);
-    String & operator=(const String& str);
-    String & operator=(const char* c);
-
-    String operator+(const String& str, const char* c);
-    String operator+(const String& str , char c);
-    String operator+(const String& str, const String& str);
+    String& operator=(char c);
+    String& operator=(const String& str);
+    String& operator=(const char* c);
 
     protected :
     char* string_;
     int size_ ;
-    int max_size=100;
-}
+    int max_size_=100;
+};
 
-*/
+String operator+(const String& str, const char* c);
+String operator+(const String& str , char c);
+String operator+( const String& str, const String& str2);
+
 #endif

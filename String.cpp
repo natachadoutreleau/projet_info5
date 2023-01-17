@@ -1,28 +1,27 @@
 #include "String.h"
-#define NULL std::nullptr
-/*
+
+
+
 String::String(const String &other){
 
-return NULL;
 }
 
 String::String(const char* cstring) {
 
-return NULL;
 }
+
 
 String::~String(){
-return NULL;
 }
 
-char* String:c_str() const{
+char* String::c_str() const{
 
-return NULL;
+return 0;
 }
 
 int String::size() const {
 
-return NULL;
+return 0;
 }
 void String::clear(){
 
@@ -30,50 +29,48 @@ void String::clear(){
 }
 int String::length(){
 
-return NULL;
+return 0;
 }
 int String::max_size(){
 
-return NULL;
+return 0;
 }
 void String::resize(int size_t, char c){
 
 }
 int String::capacity(){
 
-return NULL;
+return 0;
 }
 bool String::empty(){
 
-return NULL;
+return 0;
 }
 void String::reserve(int size_t){
 
 }
 
-String & operator=(char c){
+String& String::operator=(char c){
 
-return NULL;
+
 }
-String & operator=(const String& str){
+String& String::operator=(const String& str){
 
-return NULL;
-}
-String & operator=(const char* c){
 
-return NULL;
 }
 
-String operator+(const String& str, const char* c){
+String& String::operator=(const char* c){
 
-return NULL;
-}
-String operator+(const String& str, char c){
 
-return NULL;
 }
-String operator+(const String& str, const String& c){
 
-return NULL;
+String operator+( const String& str, const char* c){
+
 }
-*/
+
+String operator+(const String& str , char c){
+
+}
+String operator+(const String& str, const String& str2){
+
+}
