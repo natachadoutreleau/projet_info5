@@ -1,8 +1,19 @@
 #include "String.h"
 
+char** String::string(){
+  return string_;
+}
+int String::s(){
+  return s_;
+}
+
+int String::max_s(){
+  return  max_s_;
+}
+
+/*
 String::String(){
-    string_ = "Hello Wolrd";
-    size_ = 11;
+  //string_ = new char[15];
 }
 
 String::String(const String &other){
@@ -15,6 +26,7 @@ String::String(const char* cstring) {
 
 
 String::~String(){
+
 }
 
 char* String::c_str() const{
@@ -77,3 +89,4 @@ String operator+(const String& str , char c){
 String operator+(const String& str, const String& str2){
 
 }
+*/

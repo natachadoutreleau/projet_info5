@@ -4,11 +4,15 @@
 class String{
 public:
 
-    String();
-    String(const String &other); //copy constructor
-    String(const char* cstring); // constructor from a c-string
-    ~String();
+    //String();
+    char** string();
+    int s();
+    int max_s();
+    //String(const String &other); //copy constructor
+    //String(const char* cstring); // constructor from a c-string
+    //~String();
 
+    /*
     char* c_str() const; //  pointer to the c-string representation of the string object's value.
     int size() const;
     void clear();
@@ -22,15 +26,15 @@ public:
     String & operator=(char c);
     String & operator=(const String& str);
     String & operator=(const char* c);
-
+*/
     protected :
-    const char *  string_;
-    int size_ ;
-    int max_size_=100;
+    char* string_[15];
+    int s_ ;
+    int max_s_=100;
 };
-
+/*
 String operator+(const String& str, const char* c);
 String operator+(const String& str , char c);
 String operator+( const String& str, const String& str2);
-
+*/
 #endif
