@@ -24,14 +24,22 @@ String::String(const String &other){
 
 }
 */
-/*
+
 String::String(const char* cstring) {
+    int sizeC = sizeof(cstring)-2;
+    if(sizeC > max_size_)
+        std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
+    else{
+        if(15 < sizeC){
+            char string[sizeC+3];
+        }
+        for(int i=0;i<sizeC;i++)
+            string_[i] = cstring[i];
+        size_ = sizeC;
+    }
  //faire vérification de la taille aumenter capacité
-    for(int i=0;i<sizeof(cstring);i++)
-        *string_[i] = csting[i];
-    size_ = sizeof(cstring);
 }
-*/
+
 /*
 String::~String(){
 }
@@ -48,11 +56,10 @@ return 0;
 void String::clear(){
 
 
-}
+}*/
 int String::length(){
-
-return 0;
-}
+    return size_;
+}/*
 int String::max_size(){
 
 return 0;

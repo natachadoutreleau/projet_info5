@@ -4,5 +4,7 @@
 
 int main(){
     test_ctor_c_str();
+    test_ctor_cstring();
+    test_length();
     return 0;
 }
