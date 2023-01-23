@@ -1,12 +1,22 @@
 #include "String.h"
-#define NULL std::nullptr
+
+#include<iostream>
 
 String::String(){
     
     //string_ = new char[15];
-    for(int i=0;i<sizeof("Hello World");i++)
-        *string_[i] = "Hello World"[i];
+    for(int i=0;i<sizeof("Hello World");i++){
+        string_[i] = "Hello World"[i];
+    }
     size_ = sizeof("Hello World");
+    //std::cout << sizeof("Hello World") << std::endl;
+}
+
+void String::stingify(){
+    for(int i=0; i<size_; i++){
+        std::cout << string_[i];
+    }
+    std::cout  << std::endl;
 }
 
 /*
@@ -19,7 +29,7 @@ String::String(const char* cstring) {
  //faire vérification de la taille aumenter capacité
     for(int i=0;i<sizeof(cstring);i++)
         *string_[i] = csting[i];
-    size = sizeof(cstring);
+    size_ = sizeof(cstring);
 }
 */
 /*

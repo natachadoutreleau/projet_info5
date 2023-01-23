@@ -4,7 +4,9 @@
 class String{
 public:
 
-    String();/*
+    String();
+    void stingify();
+    /*
     String(const String &other); //copy constructor
     String(const char* cstring); // constructor from a c-string
     ~String();
@@ -25,7 +27,7 @@ public:
 
 */
     protected :
-        char* string_[15] ;
+        char string_[15] ;
         int size_ ;
         int max_size_=100;
 };
