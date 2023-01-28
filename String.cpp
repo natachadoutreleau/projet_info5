@@ -120,12 +120,12 @@ String& String::operator=(const String& str){
     char* temp;
     temp = new char [max_size_];
     int i = 0;
-    while(str[i] != '\0'){
+    while(str.string_[i] != '\0'){
         if(i == max_size_){
             i = -1;
             break;
         }
-        temp[i] = str[i];
+        temp[i] = str.string_[i];
         std::cout<<temp[i]<<std::endl;
         i++;
     }
