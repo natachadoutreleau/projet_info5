@@ -16,4 +16,4 @@ String.o: String.cpp String.h
 	g++ -std=c++11 -o String.o -c String.cpp
 
 clean:
-	rm make_lab $(objects)
+	rm bin $(objects)
