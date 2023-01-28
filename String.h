@@ -7,7 +7,7 @@ public:
     String();
     void stingify();
     //String(const String &other); //copy constructor
-    //String(const char* cstring); // constructor from a c-string
+    String(const char* cstring); // constructor from a c-string
     ~String();
 
     /*
@@ -19,17 +19,16 @@ public:
     void resize(int size_t, char c);
     */
     int capacity();
-    /*
     bool empty();
-    */
     void reserve(int size_t);
     /*
     String & operator=(char c);
     String & operator=(const String& str);
+    */
     String & operator=(const char* c);
-*/
+
     protected :
-      char* string_ = new char[15] ;
+      char* string_;
       int size_ ;
       int max_size_=100;
       int capacity_=15;
@@ -37,6 +36,7 @@ public:
 /*
 String operator+(const String& str, const char* c);
 String operator+(const String& str , char c);
-String operator+( const String& str, const String& str2);
 */
+String operator+( const String& str, const String& str2);
+
 #endif

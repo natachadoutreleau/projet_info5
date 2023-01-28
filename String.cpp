@@ -3,12 +3,19 @@
 
 
 String::String(){
-  //string_ = new char[15];
-  for(int i=0;i<sizeof("Hello World");i++){
+    /*
+    //string_ = new char[15];
+    for(int i=0;i<sizeof("Hello World");i++){
         string_[i] = "Hello World"[i];
     }
     size_ = sizeof("Hello World");
+    //std::cout << sizeof("Hello World") << std::endl;
+     */
+    string_ = new char[15];
+    capacity_=15;
+    size_ = 0;
 }
+
 
 void String::stingify(){
     for(int i=0; i<size_; i++){
@@ -22,10 +29,40 @@ String::String(const String &other){
 
 }
 
+*/
 String::String(const char* cstring) {
+  char* temp;
+    temp = new char [max_size_];
+    int i = 0;
+    while(cstring[i] != '\0'){
+        if(i == max_size_){
+            i = -1;
+            break;
+        }
+        temp[i] = cstring[i];
+        i++;
+    }
+    if(i == -1)
+        std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
+    else{
+        size_ = i;
+        if(i < max_size_-5){
+            string_ = new char[size_+5];
+            capacity_ = size_+5;
+        }
+
+        else{
+            string_ = new char[max_size_];
+            capacity_ = max_size_;
+        }
+        for (int i = 0; i < size_; ++i){
+          string_[i] = temp[i];
+        }
+        delete [] temp;
+    }
 
 }
-*/
+
 
 
 String::~String(){
@@ -62,12 +99,15 @@ void String::resize(int size_t, char c){
 int String::capacity(){
   return capacity_;
 }
-/*
-bool String::empty(){
 
-return 0;
+bool String::empty(){
+  if (size_==0){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
-*/
 
 void String::reserve(int size_t){
     if(size_t>max_size_){
@@ -97,12 +137,35 @@ String& String::operator=(const String& str){
 
 
 }
+*/
 
 String& String::operator=(const char* c){
+  int i=0;
+  while(c[i] != '\0'){
+      i++;
+  }
+  if (i>100){
+    std::cout<< "Warning the string is too long"<< std::endl;
+    i=100;
+  }
+  if (i>95){
+    capacity_=100;
+  }
+  else{
+    capacity_= i+5;
+  }
+  size_=i;
+  char* temp=string_;
+  string_ = new char [capacity_];
+  for(int j=0; j<size_;j++){
+    string_[j]=c[j];
+  }
+  delete [] temp;
 
-
+  return *this;
 }
 
+/*
 String operator+( const String& str, const char* c){
 
 }
@@ -110,7 +173,7 @@ String operator+( const String& str, const char* c){
 String operator+(const String& str , char c){
 
 }
+*/
 String operator+(const String& str, const String& str2){
 
 }
-*/

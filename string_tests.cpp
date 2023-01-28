@@ -46,3 +46,30 @@ void test_reserve_lower_than_size(){
   s.stingify();
   std::cout  << "La capicité demandé est 10. La nouvelle capacité est :" << s.capacity()<< std::endl;
 }
+
+void test_empty_when_empty(){
+  String s;
+  if(s.empty()){
+    std::cout  << "empty"<< std::endl;
+  }
+  else{
+    std::cout  << "not empty"<< std::endl;
+  }
+}
+
+void test_empty_when_not_empty(){
+  String s("Hello World");
+  if(s.empty()){
+    std::cout  << "empty"<< std::endl;
+  }
+  else{
+    std::cout  << "not empty"<< std::endl;
+  }
+}
+
+void test_operator_equal_char(){
+  String s("Hello World");
+  s.stingify();
+  s="Nouveau string";
+  s.stingify();
+}
