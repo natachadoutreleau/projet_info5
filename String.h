@@ -21,8 +21,9 @@ public:
     int capacity();
     /*
     bool empty();
+    */
     void reserve(int size_t);
-
+    /*
     String & operator=(char c);
     String & operator=(const String& str);
     String & operator=(const char* c);

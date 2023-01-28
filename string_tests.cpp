@@ -25,3 +25,24 @@ void test_capacity(){
       std::cout  << "Mauvaise capacité :" << capacity<< std::endl;
   }
 }
+
+void test_reserve_normal(){
+  String s;
+  s.reserve(20);
+  s.stingify();
+  std::cout  << "La nouvelle capacité est :" << s.capacity()<< std::endl;
+}
+
+void test_reserve_more_than_capacity(){
+  String s;
+  s.reserve(150);
+  s.stingify();
+  std::cout  << "La capicité demandé est 150. La nouvelle capacité est :" << s.capacity()<< std::endl;
+}
+
+void test_reserve_lower_than_size(){
+  String s;
+  s.reserve(10);
+  s.stingify();
+  std::cout  << "La capicité demandé est 10. La nouvelle capacité est :" << s.capacity()<< std::endl;
+}
