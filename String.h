@@ -16,22 +16,23 @@ public:
     char* c_str() const; //  pointer to the c-string representation of the string object's value.
     int size() const;
     void clear();*/
-    int length();/*
-    int max_size();
+    int length();
+    int max_size();/*
     void resize(int size_t, char c);
     int capacity();
     bool empty();
     void reserve(int size_t);
 
-    String & operator=(char c);
-    String & operator=(const String& str);
+    String & operator=(char c);*/
+    String & operator=(const String& str);/*
     String & operator=(const char* c);
 
 */
     protected :
-        char string_[15] ;
+        char* string_;
         int size_ ;
         int max_size_=100;
+        int capacity_;
 };
 /*
 String operator+(const String& str, const char* c);

@@ -6,10 +6,16 @@
 void test_ctor_c_str(){
     String s;
     s.stingify();
+    std::cout<<s.max_size()<<std::endl;
 }
 void test_ctor_cstring(){
-    String s1("HelloWorld\0");
+    char var[] = "Je suis un gamin et je suis nul en anglais";
+    std::cout << var << std::endl;
+    std::cout << "taille : " << sizeof(var) << std::endl;
+    String s1(var);
+    String a("lalalala");
     s1.stingify();
+    a.stingify();
 }
 
 void test_length(){
