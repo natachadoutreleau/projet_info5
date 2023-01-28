@@ -17,8 +17,8 @@ public:
     int size() const;
     void clear();*/
     int length();
-    int max_size();/*
-    void resize(int size_t, char c);
+    int max_size();
+    void resize(int size_t, char c);/*
     int capacity();
     bool empty();
     void reserve(int size_t);
