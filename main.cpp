@@ -5,5 +5,6 @@
 
 int main(){
     test_destructor();
+    test_capacity();
     return 0;
 }

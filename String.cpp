@@ -57,10 +57,11 @@ return 0;
 void String::resize(int size_t, char c){
 
 }
+*/
 int String::capacity(){
-
-return 0;
+  return capacity_;
 }
+/*
 bool String::empty(){
 
 return 0;
