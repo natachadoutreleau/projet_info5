@@ -4,20 +4,13 @@
 
 
 
-int getter_string(){
-  String s= new String();
-  std::cout<<s.string_<<std::endl;
-  return 0;
+void test_ctor_c_str(){
+    String s;
+    s.stingify();
 }
 
-int getter_s(){
-  String s= new String();
-  std::cout<<s.s<<std::endl;
-  return 0;
-}
 
-int getter_max_s(){
-  String s= new String();
-  std::cout<<s.max_s<<std::endl;
-  return 0;
+void test_destructor(){
+  String *s= new String; //sans delete on a une mémoire utilisé a 24 bytes definiteky lost et 15 bytes indirectly lost
+  delete s; // avec le delete on ne perds plus de mémoire 
 }

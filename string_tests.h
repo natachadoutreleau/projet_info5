@@ -1,5 +1,6 @@
 #ifndef STRING_TESTS_H_
 #define STRING_TESTS_H_
 
-int test_default_constructor();
+void test_ctor_c_str(void);
+void test_destructor(void);
 #endif

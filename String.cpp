@@ -1,21 +1,23 @@
 #include "String.h"
+#include <iostream>
 
-char** String::string(){
-  return string_;
-}
-int String::s(){
-  return s_;
+
+String::String(){
+  //string_ = new char[15];
+  for(int i=0;i<sizeof("Hello World");i++){
+        string_[i] = "Hello World"[i];
+    }
+    size_ = sizeof("Hello World");
 }
 
-int String::max_s(){
-  return  max_s_;
+void String::stingify(){
+    for(int i=0; i<size_; i++){
+        std::cout << string_[i];
+    }
+    std::cout  << std::endl;
 }
 
 /*
-String::String(){
-  //string_ = new char[15];
-}
-
 String::String(const String &other){
 
 }
@@ -23,12 +25,14 @@ String::String(const String &other){
 String::String(const char* cstring) {
 
 }
+*/
 
 
 String::~String(){
-
+  delete[] string_;
 }
 
+/*
 char* String::c_str() const{
 
 return 0;

@@ -4,6 +4,6 @@
 #include "string_tests.h"
 
 int main(){
-    test_default_constructor();
+    test_destructor();
     return 0;
 }
