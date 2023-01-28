@@ -35,8 +35,8 @@ public:
         int capacity_;
 };
 /*
-String operator+(const String& str, const char* c);
-String operator+(const String& str , char c);
+String operator+(const String& str, const char* c);*/
+String operator+(const String& str , char c);/*
 String operator+( const String& str, const String& str2);
 */
 #endif

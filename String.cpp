@@ -92,7 +92,7 @@ void String::resize(int size_t, char c){
         std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
     else{
         if(tmp_size > capacity_)
-            reserve(tmp_size);
+            reserve(tmp_size+5);
         for(int i; i<size_t;i++){
             string_[size_ + i - 1] = c;
         }
@@ -158,10 +158,14 @@ String& String::operator=(const char* c){
 String operator+( const String& str, const char* c){
 
 }
-
+*/
 String operator+(const String& str , char c){
-
-}
+    String s(str);
+    if(s.length() + 1 > s.capacity())
+        s.reserve(s.length()+1);
+    s.resize(c, 1);
+    return s;
+}/*
 String operator+(const String& str, const String& str2){
 
 }
