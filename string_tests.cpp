@@ -8,6 +8,14 @@ void test_ctor_c_str(){
     s.stingify();
     std::cout<<s.max_size()<<std::endl;
 }
+
+void test_ctor_cpy(){
+    String s;
+    String s_cpy(s);
+    s_cpy.stingify();
+}
+
+
 void test_ctor_cstring(){
     char var[] = "Je suis un gamin et je suis nul en anglais";
     std::cout << var << std::endl;

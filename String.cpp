@@ -4,18 +4,18 @@
 
 
 String::String(){
-    /*
-    //string_ = new char[15];
+    string_ = new char[15];
     for(int i=0;i<sizeof("Hello World");i++){
         string_[i] = "Hello World"[i];
     }
     size_ = sizeof("Hello World");
     //std::cout << sizeof("Hello World") << std::endl;
-     */
+     
+    /*
     string_ = new char[15];
     string_[0]='\0';
     capacity_=15;
-    size_ = 0;
+    size_ = 0;*/
 }
 
 void String::stingify(){
