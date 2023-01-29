@@ -141,3 +141,10 @@ void test_clear(){
     std::cout << s.length() << std::endl;
 }
 
+void test_operator_equal_c(){
+  String s;
+  s.stingify();
+  s='a';
+  s.stingify();
+
+}
