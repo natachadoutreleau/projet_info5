@@ -105,9 +105,10 @@ void String::resize(int size_t, char c){
     else{
         if(tmp_size > capacity_)
             reserve(tmp_size+5);
-        for(int i = 0; i<size_t;i++){
-            string_[size_ + i - 1] = c;
+        for(int i = 0; i<tmp_size;i++){
+            string_[size_ + i ] = c;
         }
+        size_ = tmp_size;
     }
 }
 
@@ -197,7 +198,7 @@ String operator+(const String& str , char c){
     String s(str);
     if(s.length() + 1 > s.capacity())
         s.reserve(s.length()+1);
-    s.resize(c, 1);
+    s.resize(1, c);
     return s;
 }
 

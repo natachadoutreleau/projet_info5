@@ -122,7 +122,7 @@ void test_length(){
 
 void test_resize(){
     String s("I like to code in C");
-    //s.resize(2,'a');
+    s.resize(2,'+');
     s.stingify();
 }
 
@@ -148,4 +148,10 @@ void test_operator_equal_c(){
   s='a';
   s.stingify();
 
+}
+
+void test_operator_plus_char(){
+    String s;
+    s = s+'a';
+    s.stingify();
 }
