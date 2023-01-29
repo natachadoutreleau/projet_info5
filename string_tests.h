@@ -20,4 +20,5 @@ void test_clear(void);
 void test_operator_equal_c(void);
 void test_operator_plus_char(void);
 
+
 #endif

@@ -25,8 +25,14 @@ void String::stingify(){
     std::cout  << std::endl;
 }
 
-String::String(const String &other) = default;
-
+String::String(const String &other){
+	size_=other.size_;
+	capacity_=other.capacity_;
+	string_=new char[capacity_];
+	for(int i =0; i<size_;i++){
+		string_[i]=other.string_[i];
+	}
+}
 
 
 String::String(const char* cstring) {

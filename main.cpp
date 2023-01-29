@@ -13,6 +13,8 @@ int main(){
     //test_empty_when_empty();//ok
     //test_empty_when_not_empty();//ok
     //test_operator_equal_char(); //ok
+    //test_ctor_cpy(); //ok
+    //test_cstr(); //ok
     //test_ctor_c_str();
     //test_ctor_cstring();
     //test_length(); // ok pour length et size
