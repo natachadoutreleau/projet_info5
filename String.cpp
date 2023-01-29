@@ -225,16 +225,63 @@ String& String::operator=(const char* c){
   return *this;
 }
 
-
-
-
-
 String operator+(const String& str , char c){
     String s(str);
     if(s.length() + 1 > s.capacity())
         s.reserve(s.length()+1);
     s.resize(c, 1);
     return s;
+}
+
+String operator+(const String& str, const char* c){
+	int size_c=0;
+  while(c[size_c] != '\0'){
+      size_c++;
+  }
+	int new_size = str.size_ + size_c;
+	if(new_size>str.max_size_){
+    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
+    new_size=100;
+  }
+	char* temp= new char[20];
+  int i=0;
+  while (i<str.size_){
+    temp[i]=str.string_[i];
+    i++;
+  }
+
+  int j=0;
+  while(i<new_size){
+    temp[i-1]=c[j];
+    i++;
+    j++;
+  }
+	std::cout<<temp[15]<<std::endl;
+  String new_string(temp);
+	new_string.stingify();
+	delete[] temp;
+  return new_string;
+/*
+	char *temp=new char[str.max_size_];
+	for(int i=0; i<str.size_;i++){
+		temp[i]=str.string_[i];
+	}
+	int i=0;
+	while(c[i]!='\0'){
+		if(str.size_+i==str.max_size_){
+			std::cout<<"Error : size > max_size_"<<std::endl;
+			break;
+		}
+		else{
+			temp[str.size_+i]=c[i];
+		}
+		i++;
+	}
+	String n(temp);
+	delete []temp;
+	return n;
+
+*/
 }
 
 

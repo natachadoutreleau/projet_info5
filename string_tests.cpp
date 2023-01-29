@@ -148,3 +148,10 @@ void test_operator_equal_c(){
   s.stingify();
 
 }
+
+void test_operator_plus_tab(){
+  String s;
+  String t;
+  String a =s+" test";
+  a.stingify();
+}

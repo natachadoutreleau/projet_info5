@@ -4,7 +4,7 @@
 
 int main(){
 
-    test_ctor_cpy(); //ok
+    //test_ctor_cpy(); //ok
     //test_cstr(); //ok
     /*
     test_destructor();
@@ -21,5 +21,6 @@ int main(){
     //test_operator_eg();
     //test_clear(); //ok
     //test_operator_equal_c();
+    test_operator_plus_tab();
     return 0;
 }
