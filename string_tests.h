@@ -19,4 +19,5 @@ void test_ctor_cpy(void);
 void test_clear(void);
 void test_operator_equal_c(void);
 
+
 #endif

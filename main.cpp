@@ -3,9 +3,10 @@
 #include "string_tests.h"
 
 int main(){
-    /*
-    //test_ctor_cpy(); //ok
+
+    test_ctor_cpy(); //ok
     //test_cstr(); //ok
+    /*
     test_destructor();
     test_capacity();
     test_reserve_normal();
@@ -19,6 +20,6 @@ int main(){
     //test_length(); // ok pour length et size*/
     //test_operator_eg();
     //test_clear(); //ok
-    test_operator_equal_c();
+    //test_operator_equal_c();
     return 0;
 }

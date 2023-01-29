@@ -24,21 +24,14 @@ void String::stingify(){
     }
     std::cout  << std::endl;
 }
-String::String(const String &other) = default;
-/*
 String::String(const String &other){
-	int len = other.length();
-	if(len > max_size_)
-		throw std::length_error("Error");
-		string_ = new char[len+1];
-	 	max_size_= len+1;
-	for (int i = 0; i<len+1; i++){
-	    string_[i] = other.string_[i];
+	size_=other.size_;
+	capacity_=other.capacity_;
+	string_=new char[capacity_];
+	for(int i =0; i<size_;i++){
+		string_[i]=other.string_[i];
 	}
-	string_[len]='\0';
 }
-*/
-
 
 String::String(const char* cstring) {
   char* temp;
