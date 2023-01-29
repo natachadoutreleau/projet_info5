@@ -73,3 +73,10 @@ void test_operator_equal_char(){
   s="Nouveau string";
   s.stingify();
 }
+
+void test_operator_plus_two_str(){
+  String s("Hello World");
+  s.stingify();
+  s="Nouveau string";
+  s.stingify();
+}

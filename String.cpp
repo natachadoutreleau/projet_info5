@@ -175,5 +175,23 @@ String operator+(const String& str , char c){
 }
 */
 String operator+(const String& str, const String& str2){
-
+  int new_size= str.size_ + str2.size_;
+  if(new_size>100){
+    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
+    new_size=100;
+  }
+  char* temp= new char[new_size];
+  int i=0;
+  while (i<str.size_){
+    temp[i]=str.string_[i];
+    i++;
+  }
+  int j=0;
+  while(i<new_size){
+    temp[i]=str2.string_[j];
+    i++;
+    j++;
+  }
+  String new_string(temp);
+  return new_string;
 }
