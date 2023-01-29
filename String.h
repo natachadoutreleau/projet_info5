@@ -6,28 +6,24 @@ public:
 
     String();
     void stingify();
-    /*
     String(const String &other); //copy constructor
-     */
+
     String(const char* cstring); // constructor from a c-string
     /*
     ~String();
-
+*/
     char* c_str() const; //  pointer to the c-string representation of the string object's value.
     int size() const;
-    void clear();*/
+    void clear();
     int length();
     int max_size();/*
     void resize(int size_t, char c);
     int capacity();
     bool empty();
-    void reserve(int size_t);
+    void reserve(int size_t);*/
+    //String & operator=(const String& str);
+    //String & operator=(char c);
 
-    String & operator=(char c);*/
-    String & operator=(const String& str);/*
-    String & operator=(const char* c);
-
-*/
     protected :
         char* string_;
         int size_ ;

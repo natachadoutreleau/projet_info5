@@ -2,6 +2,7 @@
 
 #include<iostream>
 
+
 String::String(){
     /*
     //string_ = new char[15];
@@ -12,6 +13,7 @@ String::String(){
     //std::cout << sizeof("Hello World") << std::endl;
      */
     string_ = new char[15];
+    string_[0]='\0';
     capacity_=15;
     size_ = 0;
 }
@@ -22,12 +24,21 @@ void String::stingify(){
     }
     std::cout  << std::endl;
 }
-
+String::String(const String &other) = default;
 /*
 String::String(const String &other){
-
+	int len = other.length();
+	if(len > max_size_)
+		throw std::length_error("Error");
+		string_ = new char[len+1];
+	 	max_size_= len+1;
+	for (int i = 0; i<len+1; i++){
+	    string_[i] = other.string_[i];
+	}
+	string_[len]='\0';
 }
 */
+
 
 String::String(const char* cstring) {
     char* temp;
@@ -59,28 +70,38 @@ String::String(const char* cstring) {
         delete [] temp;
     }
 }
+
  //faire vérification de la taille aumenter capacité
 
 /*
+>>>>>>> refs/remotes/origin/main
 String::~String(){
 }
-
+*/
 char* String::c_str() const{
-
-return 0;
+	char* cstr = new char[this->size_+1];
+	for(int i=0; i<this->size_;i++){
+	cstr[i]=string_[i];
+	}
+	cstr[this->size_] = '\0';
+	return cstr;
 }
 
 int String::size() const {
-
-return 0;
+	return size_;
 }
-void String::clear(){
 
 
-}*/
+
 int String::length(){
     return size_;
 }
+
+void String::clear(){
+  string_[0]='\0';
+}
+
+
 
 int String::max_size(){
     return max_size_;
@@ -110,14 +131,14 @@ void String::reserve(int size_t){
 }
 
 String& String::operator=(char c){
+	string_[0]=c;
+	string_[1]='\0';
+	return *this;
+}
 
-
-}*/
-//refaire
 String& String::operator=(const String& str){
     String s(str);
     return s;
-    /*
     delete string_;
     char* temp;
     temp = new char [max_size_];
@@ -149,13 +170,9 @@ String& String::operator=(const String& str){
         delete [] temp;
     }
     return *this;
-     */
 }
-/*
-String& String::operator=(const char* c){
 
 
-}
 
 String operator+( const String& str, const char* c){
 
