@@ -21,6 +21,8 @@ int main(){
     //test_operator_eg();
     //test_clear(); //ok
     //test_operator_equal_c();
+    //test_resize();//ok
+    //test_operator_plus_char();//ok
     test_operator_plus_tab();
     return 0;
 }

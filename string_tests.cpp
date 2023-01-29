@@ -87,6 +87,7 @@ void test_operator_plus_two_str(){
 
 void test_ctor_cpy(){
     String s;
+    s.stingify();
     String s_cpy(s);
     s_cpy.stingify();
 }
@@ -121,7 +122,7 @@ void test_length(){
 
 void test_resize(){
     String s("I like to code in C");
-    //s.resize(2,'a');
+    s.resize(2,'+');
     s.stingify();
 }
 
@@ -149,6 +150,11 @@ void test_operator_equal_c(){
 
 }
 
+void test_operator_plus_char(){
+    String s;
+    s = s+'a';
+    s.stingify();
+}
 void test_operator_plus_tab(){
   String s;
   String t;

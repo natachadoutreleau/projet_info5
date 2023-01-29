@@ -24,6 +24,7 @@ void String::stingify(){
     }
     std::cout  << std::endl;
 }
+
 String::String(const String &other){
 	size_=other.size_;
 	capacity_=other.capacity_;
@@ -33,8 +34,9 @@ String::String(const String &other){
 	}
 }
 
+
 String::String(const char* cstring) {
-  char* temp;
+    char* temp;
     temp = new char [max_size_];
     int i = 0;
     while(cstring[i] != '\0'){
@@ -70,7 +72,7 @@ String::String(const char* cstring) {
 
 
 String::~String(){
-  delete[] string_;
+    delete[] string_;
 }
 
 char* String::c_str() const{
@@ -109,15 +111,16 @@ void String::resize(int size_t, char c){
     else{
         if(tmp_size > capacity_)
             reserve(tmp_size+5);
-        for(int i = 0; i<size_t;i++){
-            string_[size_ + i - 1] = c;
+        for(int i = 0; i<tmp_size;i++){
+            string_[size_ + i ] = c;
         }
+        size_ = tmp_size;
     }
 }
 
 
 int String::capacity(){
-  return capacity_;
+    return capacity_;
 }
 
 
@@ -165,38 +168,6 @@ String& String::operator=(const String& str){
     for(int i=0; i< str.size_; i++)
         string_[i] = temp[i];
     return *this;
-    /*
-    delete string_;
-    char* temp;
-    temp = new char [max_size_];
-    int i = 0;
-    while(str.string_[i] != '\0'){
-        if(i == max_size_){
-            i = -1;
-            break;
-        }
-        temp[i] = str.string_[i];
-        std::cout<<temp[i]<<std::endl;
-        i++;
-    }
-    if(i == -1)
-        std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
-    else{
-        std::cout << std::endl;
-        size_ = i;
-        if(i != max_size_){
-            string_ = new char[size_+5];
-            capacity_ = size_+5;
-        }
-
-        else{
-            string_ = new char[max_size_];
-            capacity_ = max_size_;
-        }
-        memcpy(string_, temp, size_ * sizeof(char));
-        delete [] temp;
-    }
-    return *this;*/
 }
 
 String& String::operator=(const char* c){
@@ -229,7 +200,7 @@ String operator+(const String& str , char c){
     String s(str);
     if(s.length() + 1 > s.capacity())
         s.reserve(s.length()+1);
-    s.resize(c, 1);
+    s.resize(1, c);
     return s;
 }
 
@@ -261,27 +232,6 @@ String operator+(const String& str, const char* c){
 	new_string.stingify();
 	delete[] temp;
   return new_string;
-/*
-	char *temp=new char[str.max_size_];
-	for(int i=0; i<str.size_;i++){
-		temp[i]=str.string_[i];
-	}
-	int i=0;
-	while(c[i]!='\0'){
-		if(str.size_+i==str.max_size_){
-			std::cout<<"Error : size > max_size_"<<std::endl;
-			break;
-		}
-		else{
-			temp[str.size_+i]=c[i];
-		}
-		i++;
-	}
-	String n(temp);
-	delete []temp;
-	return n;
-
-*/
 }
 
 
