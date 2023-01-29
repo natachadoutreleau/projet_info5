@@ -74,7 +74,6 @@ String::String(const char* cstring) {
  //faire vérification de la taille aumenter capacité
 
 /*
->>>>>>> refs/remotes/origin/main
 String::~String(){
 }
 */

@@ -15,6 +15,14 @@ void test_ctor_cpy(){
     s_cpy.stingify();
 }
 
+void test_cstr(){
+    String s;
+    char *temp;
+    temp = s.c_str();
+    int t_size = s.length();
+    for(int i=0; i<t_size;i++)
+        std::cout << temp[i];
+}
 
 void test_ctor_cstring(){
     char var[] = "Je suis un gamin et je suis nul en anglais";
