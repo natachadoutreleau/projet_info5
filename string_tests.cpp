@@ -21,4 +21,10 @@ void test_ctor_cstring(){
 void test_length(){
     String s2;
     std::cout << s2.length() << std::endl;
+    s2.resize("+",2);
+    s2.stingify;
+}
+
+void test_resize(){
+    String s("I like to code in C");
 }

@@ -39,15 +39,13 @@ String::String(const char* cstring) {
             break;
         }
         temp[i] = cstring[i];
-        std::cout<<temp[i]<<std::endl;
         i++;
     }
     if(i == -1)
         std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
     else{
-        std::cout << std::endl;
         size_ = i;
-        if(i != max_size_){
+        if(i < max_size_-5){
             string_ = new char[size_+5];
             capacity_ = size_+5;
         }
@@ -56,7 +54,8 @@ String::String(const char* cstring) {
             string_ = new char[max_size_];
             capacity_ = max_size_;
         }
-        memcpy(string_, temp, size_ * sizeof(char));
+        for(int i = 0; i<size_;i++)
+            string_[i] = temp[i];
         delete [] temp;
     }
 }
@@ -93,7 +92,7 @@ void String::resize(int size_t, char c){
     else{
         if(tmp_size > capacity_)
             reserve(tmp_size+5);
-        for(int i; i<size_t;i++){
+        for(int i = 0; i<size_t;i++){
             string_[size_ + i - 1] = c;
         }
     }
@@ -114,8 +113,10 @@ String& String::operator=(char c){
 
 
 }*/
+//refaire
 String& String::operator=(const String& str){
-    this->clear();
+    return String s(str);
+    /*
     delete string_;
     char* temp;
     temp = new char [max_size_];
@@ -147,7 +148,7 @@ String& String::operator=(const String& str){
         delete [] temp;
     }
     return *this;
-
+     */
 }
 /*
 String& String::operator=(const char* c){
