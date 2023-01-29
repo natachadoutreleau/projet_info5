@@ -37,6 +37,7 @@ void test_ctor_cstring(){
 void test_length(){
     String s2;
     std::cout << s2.length() << std::endl;
+    std::cout << s2.size() << std::endl;
 }
 
 void test_resize(){
