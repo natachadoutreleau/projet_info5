@@ -21,10 +21,17 @@ void test_ctor_cstring(){
 void test_length(){
     String s2;
     std::cout << s2.length() << std::endl;
-    s2.resize("+",2);
-    s2.stingify;
 }
 
 void test_resize(){
     String s("I like to code in C");
+    //s.resize(2,'a');
+    s.stingify();
+}
+
+void test_operator_eg(){
+    String s;
+    String s1("I like to code in C");
+    s = s1;
+    s.stingify();
 }

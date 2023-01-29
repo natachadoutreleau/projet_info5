@@ -17,8 +17,8 @@ public:
     int size() const;
     void clear();*/
     int length();
-    int max_size();
-    void resize(int size_t, char c);/*
+    int max_size();/*
+    void resize(int size_t, char c);
     int capacity();
     bool empty();
     void reserve(int size_t);
@@ -35,8 +35,8 @@ public:
         int capacity_;
 };
 /*
-String operator+(const String& str, const char* c);*/
-String operator+(const String& str , char c);/*
+String operator+(const String& str, const char* c);
+String operator+(const String& str , char c);
 String operator+( const String& str, const String& str2);
 */
 #endif

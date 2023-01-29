@@ -84,7 +84,7 @@ int String::length(){
 
 int String::max_size(){
     return max_size_;
-}
+}/*
 void String::resize(int size_t, char c){
     int tmp_size = size_t + size_;
     if(tmp_size > max_size_)
@@ -96,7 +96,7 @@ void String::resize(int size_t, char c){
             string_[size_ + i - 1] = c;
         }
     }
-}/*
+}
 int String::capacity(){
 
 return 0;
@@ -115,7 +115,8 @@ String& String::operator=(char c){
 }*/
 //refaire
 String& String::operator=(const String& str){
-    return String s(str);
+    String s(str);
+    return s;
     /*
     delete string_;
     char* temp;
@@ -159,14 +160,14 @@ String& String::operator=(const char* c){
 String operator+( const String& str, const char* c){
 
 }
-*/
+
 String operator+(const String& str , char c){
     String s(str);
     if(s.length() + 1 > s.capacity())
         s.reserve(s.length()+1);
     s.resize(c, 1);
     return s;
-}/*
+}
 String operator+(const String& str, const String& str2){
 
 }

@@ -6,5 +6,6 @@ int main(){
     //test_ctor_c_str();
     test_ctor_cstring();
     //test_length();
+    test_operator_eg();
     return 0;
 }
