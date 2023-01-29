@@ -1,41 +1,52 @@
 #include "String.h"
 #define NULL std::nullptr
 
-String::String(){
-    string_ = "Hello Wolrd";
-    size_ = 11;
+// String::String(){
+//     string_ = "Hello World";
+//     size_ = 11;
+// }
+
+
+String::String(const String &other){
+	int len = other.length();
+	if(len > max_size_)
+		throw std::length_error("Error");
+		string_ = new char[len+1];
+	 	max_size_= len+1;
+	for (int i = 0; i<len+1; i++){
+	    string_[i] = other.string_[i];
+	}
+	string_[len]='\0';
 }
 
 /*
-String::String(const String &other){
-
-}
-
 String::String(const char* cstring) {
 
 }
-
-
 String::~String(){
 }
-
+*/
 char* String::c_str() const{
-
-return 0;
+	char* cstr = new char[this->size_+1];
+	for(int i=0; i<this->size_;i++){
+	cstr[i]=string_[i];
+	}
+	cstr[this->size_] = '\0';
+	return cstr;
 }
 
 int String::size() const {
-
-return 0;
+	//return this->length();
 }
+
 void String::clear(){
-
-
+  string_[0]='\0';
 }
+/*
 int String::length(){
-
-return 0;
+	return size_;
 }
+
 int String::max_size(){
 
 return 0;
@@ -54,11 +65,13 @@ return 0;
 void String::reserve(int size_t){
 
 }
-
+*/
 String& String::operator=(char c){
-
-
+	//string_[0]=str;
+	string_[1]='\0';
+	return *this;
 }
+/*
 String& String::operator=(const String& str){
 
 
@@ -79,3 +92,4 @@ String operator+(const String& str , char c){
 String operator+(const String& str, const String& str2){
 
 }
+*/
