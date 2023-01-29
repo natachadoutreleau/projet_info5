@@ -6,8 +6,10 @@ public:
 
     String();
     void stingify();
-    //String(const String &other); //copy constructor
+    String(const String &other); //copy constructor
+
     String(const char* cstring); // constructor from a c-string
+    /*
     ~String();
 
     /*
@@ -15,30 +17,25 @@ public:
     int size() const;
     void clear();
     int length();
-    int max_size();
+    int max_size();/*
     void resize(int size_t, char c);
     */
     int capacity();
     bool empty();
-    void reserve(int size_t);
-    /*
-    String & operator=(char c);
-    String & operator=(const String& str);
-    */
-    String & operator=(const char* c);
-
-    friend String operator+( const String& str, const String& str2);
+    void reserve(int size_t);*/
+    //String & operator=(const String& str);
+    //String & operator=(char c);
 
     protected :
-      char* string_;
-      int size_ ;
-      int max_size_=100;
-      int capacity_=15;
+        char* string_;
+        int size_ ;
+        int max_size_=100;
+        int capacity_;
+>>>>>>> refs/remotes/origin/main
 };
 /*
 String operator+(const String& str, const char* c);
 String operator+(const String& str , char c);
 */
-
-
+>>>>>>> refs/remotes/origin/main
 #endif
