@@ -18,5 +18,9 @@ int main(){
     //test_length(); // ok pour length et size
     //test_operator_eg();//ok
     //test_clear(); //ok
+    //test_length(); // ok pour length et size*/
+    //test_operator_eg();
+    //test_clear(); //ok
+    //test_operator_equal_c();
     return 0;
 }

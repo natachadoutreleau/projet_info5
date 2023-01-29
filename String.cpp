@@ -10,7 +10,7 @@ String::String(){
     }
     size_ = sizeof("Hello World");
     //std::cout << sizeof("Hello World") << std::endl;
-     
+
     /*
     string_ = new char[15];
     string_[0]='\0';
@@ -147,8 +147,9 @@ void String::reserve(int size_t){
 
 
 String& String::operator=(char c){
+	this->clear();
 	string_[0]=c;
-	string_[1]='\0';
+	size_=1;
 	return *this;
 }
 
