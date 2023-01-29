@@ -97,7 +97,9 @@ int String::length(){
 }
 
 void String::clear(){
-  string_[0]='\0';
+    for(int i=0; i<size_;i++)
+        string_[i] = '\0';
+    size_ = 0;
 }
 
 

@@ -40,6 +40,8 @@ void test_length(){
     std::cout << s2.size() << std::endl;
 }
 
+
+
 void test_resize(){
     String s("I like to code in C");
     //s.resize(2,'a');
@@ -51,4 +53,13 @@ void test_operator_eg(){
     String s1("I like to code in C");
     s = s1;
     s.stingify();
+}
+
+
+void test_clear(){
+    String s;
+    s.stingify();
+    s.clear();
+    s.stingify();
+    std::cout << s.length() << std::endl;
 }

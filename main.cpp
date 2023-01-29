@@ -9,5 +9,6 @@ int main(){
     //test_ctor_cstring();
     //test_length(); // ok pour length et size
     //test_operator_eg();
+    //test_clear(); //ok
     return 0;
 }
