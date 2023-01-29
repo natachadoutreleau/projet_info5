@@ -78,28 +78,16 @@ void test_operator_equal_char(){
 
 void test_operator_plus_two_str(){
   String s("Hello World");
+  String t("Bonjour");
   s.stingify();
-  s="Nouveau string";
-  s.stingify();
-    std::cout<<s.max_size()<<std::endl;
+  std::cout<< "taille est : "<<s.size()<<std::endl;
+  t.stingify();
+  std::cout<< "taille est : "<<t.size()<<std::endl;
+  String new_str;
+  new_str= s+t;
+  new_str.stingify();
+  std::cout<<"taille: "<< new_str.size()<<" capacity : "<<new_str.capacity()<<std::endl;
 }
-
-
-void test_ctor_cpy(){
-    String s;
-    String s_cpy(s);
-    s_cpy.stingify();
-}
-
-void test_cstr(){
-    String s;
-    char *temp;
-    temp = s.c_str();
-    int t_size = s.length();
-    for(int i=0; i<t_size;i++)
-        std::cout << temp[i];
-}
-
 
 void test_ctor_cstring(){
     char var[] = "Je suis un gamin et je suis nul en anglais";
@@ -114,10 +102,7 @@ void test_ctor_cstring(){
 void test_length(){
     String s2;
     std::cout << s2.length() << std::endl;
-    std::cout << s2.size() << std::endl;
 }
-
-
 
 void test_resize(){
     String s("I like to code in C");
@@ -131,13 +116,3 @@ void test_operator_eg(){
     s = s1;
     s.stingify();
 }
-
-
-void test_clear(){
-    String s;
-    s.stingify();
-    s.clear();
-    s.stingify();
-    std::cout << s.length() << std::endl;
-}
-

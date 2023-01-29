@@ -10,6 +10,7 @@ void test_reserve_lower_than_size(void);
 void test_empty_when_empty(void);
 void test_empty_when_not_empty(void);
 void test_operator_equal_char(void);
+void test_operator_plus_two_str(void);
 void test_ctor_cstring(void);
 void test_length(void);
 void test_resize(void);

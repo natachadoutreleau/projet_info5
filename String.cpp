@@ -10,7 +10,7 @@ String::String(){
     }
     size_ = sizeof("Hello World");
     //std::cout << sizeof("Hello World") << std::endl;
-     
+
     /*
     string_ = new char[15];
     string_[0]='\0';
@@ -164,45 +164,15 @@ String& String::operator=(char c){
 }
 
 String& String::operator=(const String& str){
+    delete [] string_;
     char* temp = str.c_str();
     string_ = new char [str.capacity_];
     capacity_ = str.capacity_;
     size_ = str.size_;
     for(int i=0; i< str.size_; i++)
         string_[i] = temp[i];
+    delete [] temp;
     return *this;
-    /*
-    delete string_;
-    char* temp;
-    temp = new char [max_size_];
-    int i = 0;
-    while(str.string_[i] != '\0'){
-        if(i == max_size_){
-            i = -1;
-            break;
-        }
-        temp[i] = str.string_[i];
-        std::cout<<temp[i]<<std::endl;
-        i++;
-    }
-    if(i == -1)
-        std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
-    else{
-        std::cout << std::endl;
-        size_ = i;
-        if(i != max_size_){
-            string_ = new char[size_+5];
-            capacity_ = size_+5;
-        }
-
-        else{
-            string_ = new char[max_size_];
-            capacity_ = max_size_;
-        }
-        memcpy(string_, temp, size_ * sizeof(char));
-        delete [] temp;
-    }
-    return *this;*/
 }
 
 String& String::operator=(const char* c){
@@ -250,7 +220,7 @@ String operator+(const String& str, const String& str2){
     std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
     new_size=100;
   }
-  char* temp= new char[new_size];
+  char* temp = new char[new_size];
   int i=0;
   while (i<str.size_){
     temp[i]=str.string_[i];
@@ -263,5 +233,6 @@ String operator+(const String& str, const String& str2){
     j++;
   }
   String new_string(temp);
+  delete[] temp;
   return new_string;
 }
