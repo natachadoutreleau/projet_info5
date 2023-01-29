@@ -1,4 +1,3 @@
-CXXFLAGS = -Wall
 
 objects = String.o string_tests.o main.o bin
 
