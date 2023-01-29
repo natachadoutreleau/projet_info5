@@ -3,22 +3,20 @@
 #include "string_tests.h"
 
 int main(){
-    /*
     //test_ctor_cpy(); //ok
     //test_cstr(); //ok
-    test_destructor();
-    test_capacity();
-    test_reserve_normal();
-    test_reserve_more_than_capacity();
-    test_reserve_lower_than_size();
-    test_empty_when_empty();
-    test_empty_when_not_empty();
-    test_operator_equal_char();
+    //test_destructor(); //ok
+    //test_capacity(); //ok
+    //test_reserve_normal();//ok
+    //test_reserve_more_than_capacity();//ok
+    //test_reserve_lower_than_size();//ok
+    //test_empty_when_empty();//ok
+    //test_empty_when_not_empty();//ok
+    //test_operator_equal_char(); //ok
     //test_ctor_c_str();
     //test_ctor_cstring();
-    //test_length(); // ok pour length et size*/
-    test_operator_eg();/*
+    //test_length(); // ok pour length et size
+    //test_operator_eg();//ok
     //test_clear(); //ok
-     */
     return 0;
 }

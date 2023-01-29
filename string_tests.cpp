@@ -87,6 +87,7 @@ void test_operator_plus_two_str(){
 
 void test_ctor_cpy(){
     String s;
+    s.stingify();
     String s_cpy(s);
     s_cpy.stingify();
 }
