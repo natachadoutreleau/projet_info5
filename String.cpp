@@ -1,10 +1,20 @@
 #include "String.h"
 #define NULL std::nullptr
 
+<<<<<<< HEAD
 // String::String(){
 //     string_ = "Hello World";
 //     size_ = 11;
 // }
+=======
+String::String(){
+    
+    //string_ = new char[15];
+    for(int i=0;i<sizeof("Hello World");i++)
+        *string_[i] = "Hello World"[i];
+    size_ = sizeof("Hello World");
+}
+>>>>>>> refs/remotes/origin/main
 
 
 String::String(const String &other){
@@ -18,11 +28,23 @@ String::String(const String &other){
 	}
 	string_[len]='\0';
 }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> refs/remotes/origin/main
 /*
 String::String(const char* cstring) {
-
+ //faire vérification de la taille aumenter capacité
+    for(int i=0;i<sizeof(cstring);i++)
+        *string_[i] = csting[i];
+    size = sizeof(cstring);
 }
+<<<<<<< HEAD
+=======
+*/
+/*
+>>>>>>> refs/remotes/origin/main
 String::~String(){
 }
 */
