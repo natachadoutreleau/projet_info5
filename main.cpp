@@ -6,6 +6,7 @@ int main(){
 
     //test_ctor_cpy(); //ok
     //test_cstr(); //ok
+
     //test_destructor();
     //test_capacity();
     //test_reserve_normal();
