@@ -80,6 +80,7 @@ void test_operator_plus_two_str(){
   String s("Hello World");
   String t("Bonjour");
   s.stingify();
+<<<<<<< HEAD
   std::cout<< "taille est : "<<s.size()<<std::endl;
   t.stingify();
   std::cout<< "taille est : "<<t.size()<<std::endl;
@@ -87,6 +88,19 @@ void test_operator_plus_two_str(){
   new_str= s+t;
   new_str.stingify();
   std::cout<<"taille: "<< new_str.size()<<" capacity : "<<new_str.capacity()<<std::endl;
+=======
+  s="Nouveau string";
+  s.stingify();
+    std::cout<<s.max_size()<<std::endl;
+}
+
+
+void test_ctor_cpy(){
+    String s;
+    s.stingify();
+    String s_cpy(s);
+    s_cpy.stingify();
+>>>>>>> refs/remotes/origin/main
 }
 
 void test_operator_plus(){
@@ -116,7 +130,7 @@ void test_length(){
 
 void test_resize(){
     String s("I like to code in C");
-    //s.resize(2,'a');
+    s.resize(2,'+');
     s.stingify();
 }
 
@@ -126,3 +140,35 @@ void test_operator_eg(){
     s = s1;
     s.stingify();
 }
+<<<<<<< HEAD
+=======
+
+
+void test_clear(){
+    String s;
+    s.stingify();
+    s.clear();
+    s.stingify();
+    std::cout << s.length() << std::endl;
+}
+
+void test_operator_equal_c(){
+  String s;
+  s.stingify();
+  s='a';
+  s.stingify();
+
+}
+
+void test_operator_plus_char(){
+    String s;
+    s = s+'a';
+    s.stingify();
+}
+void test_operator_plus_tab(){
+  String s;
+  String t;
+  String a =s+" test";
+  a.stingify();
+}
+>>>>>>> refs/remotes/origin/main

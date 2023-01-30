@@ -77,7 +77,7 @@ String::String(const char* cstring) {
 
 
 String::~String(){
-  delete[] string_;
+    delete[] string_;
 }
 
 char* String::c_str() const{
@@ -116,15 +116,16 @@ void String::resize(int size_t, char c){
     else{
         if(tmp_size > capacity_)
             reserve(tmp_size+5);
-        for(int i = 0; i<size_t;i++){
-            string_[size_ + i - 1] = c;
+        for(int i = 0; i<tmp_size;i++){
+            string_[size_ + i ] = c;
         }
+        size_ = tmp_size;
     }
 }
 
 
 int String::capacity(){
-  return capacity_;
+    return capacity_;
 }
 
 
@@ -158,8 +159,9 @@ void String::reserve(int size_t){
 
 
 String& String::operator=(char c){
+	this->clear();
 	string_[0]=c;
-	string_[1]='\0';
+	size_=1;
 	return *this;
 }
 
@@ -201,6 +203,7 @@ String& String::operator=(const char* c){
   return *this;
 }
 
+<<<<<<< HEAD
 
 String operator+(const String& str , const char* c){
   int size_c=0;
@@ -239,12 +242,64 @@ String operator+(const String& str , const char* c){
 
 
 
+=======
+>>>>>>> refs/remotes/origin/main
 String operator+(const String& str , char c){
-    String s(str);
-    if(s.length() + 1 > s.capacity())
-        s.reserve(s.length()+1);
-    s.resize(c, 1);
-    return s;
+  if(new_size>str.max_size_){
+    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
+    new_size=100;
+  }
+  char* temp= new char[20];
+  int i=0;
+  while (i<str.size_){
+    temp[i]=str.string_[i];
+    i++;
+  }
+
+  int j=0;
+  while(i<new_size){
+    temp[i-1]=c[j];
+    i++;
+    j++;
+  }
+  std::cout<<temp[15]<<std::endl;
+  String new_string(temp);
+  new_string.stingify();
+  delete[] temp;
+  return new_string;
+}
+
+
+}
+
+String operator+(const String& str, const char* c){
+	int size_c=0;
+  while(c[size_c] != '\0'){
+      size_c++;
+  }
+	int new_size = str.size_ + size_c;
+	if(new_size>str.max_size_){
+    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
+    new_size=100;
+  }
+	char* temp= new char[20];
+  int i=0;
+  while (i<str.size_){
+    temp[i]=str.string_[i];
+    i++;
+  }
+
+  int j=0;
+  while(i<new_size){
+    temp[i-1]=c[j];
+    i++;
+    j++;
+  }
+	std::cout<<temp[15]<<std::endl;
+  String new_string(temp);
+	new_string.stingify();
+	delete[] temp;
+  return new_string;
 }
 
 
