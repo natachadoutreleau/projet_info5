@@ -202,6 +202,40 @@ String& String::operator=(const char* c){
 }
 
 
+String operator+(const String& str , const char* c){
+  int size_c=0;
+	std::cout<<c<<std::endl;
+  while(c[size_c] != '\0'){
+      size_c++;
+  }
+	int new_size = str.size_ + size_c;
+	std::cout<<size_c<<"  "<<new_size<<std::endl;
+	if(new_size>str.max_size_){
+    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
+    new_size=100;
+  }
+	char* temp= new char[new_size];
+  int i=0;
+  while (i<str.size_){
+    temp[i]=str.string_[i];
+    i++;
+  }
+
+  int j=0;
+  while(i<new_size){
+    temp[i]=c[j];
+		std::cout<<c[j]<<"  i: "<<i<<std::endl;
+		std::cout<<temp<<std::endl;
+    i++;
+    j++;
+  }
+	std::cout<<temp<<std::endl;
+  String new_string(temp);
+	std::cout<<new_string.size_<<std::endl;
+	new_string.stingify();
+	delete[] temp;
+  return new_string;
+}
 
 
 

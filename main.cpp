@@ -12,13 +12,14 @@ int main(){
     //test_reserve_more_than_capacity();
     //test_reserve_lower_than_size();
     //test_empty_when_empty();
+    test_operator_plus();
     //test_empty_when_not_empty();
     //test_operator_equal_char();
     //test_ctor_c_str();
     //test_ctor_cstring();
     //test_length(); // ok pour length et size*/
     //test_operator_eg();
-    test_operator_plus_two_str();
+    //test_operator_plus_two_str();
     //test_clear(); //ok
 
     return 0;

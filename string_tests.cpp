@@ -89,6 +89,16 @@ void test_operator_plus_two_str(){
   std::cout<<"taille: "<< new_str.size()<<" capacity : "<<new_str.capacity()<<std::endl;
 }
 
+void test_operator_plus(){
+  String s("Hello World");
+  s.stingify();
+  std::cout<< "taille est : "<<s.size()<<std::endl;
+  String new_str;
+  new_str= s+"test";
+  new_str.stingify();
+  std::cout<<"taille: "<< new_str.size()<<" capacity : "<<new_str.capacity()<<std::endl;
+}
+
 void test_ctor_cstring(){
     char var[] = "Je suis un gamin et je suis nul en anglais";
     std::cout << var << std::endl;

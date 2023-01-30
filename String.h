@@ -24,7 +24,9 @@ public:
     String & operator=(char c);
     String& operator=(const char* c);
     friend String operator+(const String& str, const String& str2);
-    
+    friend String operator+(const String& str, const char* c);
+    friend String operator+(const String& str , char c);
+
 
     protected :
         char* string_;
@@ -33,7 +35,5 @@ public:
         int capacity_;
 };
 
-String operator+(const String& str, const char* c);
-String operator+(const String& str , char c);
 
 #endif
