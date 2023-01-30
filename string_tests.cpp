@@ -31,22 +31,22 @@ void test_capacity(){
 }
 
 void test_reserve_normal(){
-  String s;
+  String s("test");
   s.reserve(20);
   s.stringify();
   std::cout  << "The capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_more_than_capacity(){
-  String s;
+  String s("test");
   s.reserve(150);
   s.stringify();
   std::cout  << " The capacity requested is 150. The new capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_lower_than_size(){
-  String s;
-  s.reserve(10);
+  String s("test");
+  s.reserve(2);
   s.stringify();
   std::cout  << "The capacity requested is 10. The new capacity is :" << s.capacity()<< std::endl;
 }
@@ -152,12 +152,12 @@ void test_operator_eg(){
 
 
 void test_clear(){
-    String s;
+    String s("test");
     std::cout<<"Before clearing: "<<std::endl;
-    s.stingify();
+    s.stringify();
     s.clear();
     std::cout<<"After clearing: "<<std::endl;
-    s.stingify();
+    s.stringify();
     std::cout << "After clearing, the size is: " << s.length() << std::endl;
 }
 
