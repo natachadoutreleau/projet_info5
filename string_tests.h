@@ -18,12 +18,9 @@ void test_operator_eg(void);
 void test_cstr(void);
 void test_ctor_cpy(void);
 void test_clear(void);
-<<<<<<< HEAD
 void test_operator_plus(void);
-=======
 void test_operator_equal_c(void);
 void test_operator_plus_tab(void);
 void test_operator_plus_char(void);
->>>>>>> refs/remotes/origin/main
 
 #endif

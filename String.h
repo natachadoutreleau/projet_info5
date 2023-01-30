@@ -5,9 +5,8 @@ class String{
 public:
 
     String();
-    void stingify();
+    void stringify();
     String(const String &other); //copy constructor
-
     String(const char* cstring); // constructor from a c-string
     ~String();
 
@@ -17,13 +16,13 @@ public:
     int length();
     int max_size();
     void resize(int size_t, char c);
-    int capacity();
-    bool empty();
-    void reserve(int size_t);
+    int capacity(); // Return size of allocated storage
+    bool empty(); // Test if string is empty
+    void reserve(int size_t); //Request a change in capacity
     String & operator=(const String& str);
     String & operator=(char c);
-    String& operator=(const char* c);
-    friend String operator+(const String& str, const String& str2);
+    String& operator=(const char* c); //String assignment from a char array
+    friend String operator+(const String& str, const String& str2); //Concatenate two strings objects
     friend String operator+(const String& str, const char* c);
     friend String operator+(const String& str , char c);
 

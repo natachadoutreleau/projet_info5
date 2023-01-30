@@ -4,40 +4,34 @@
 
 
 String::String(){
+  /*
     string_ = new char[15];
     for(int i=0;i<sizeof("Hello World");i++){
         string_[i] = "Hello World"[i];
     }
     size_ = sizeof("Hello World");
     //std::cout << sizeof("Hello World") << std::endl;
-
-    /*
+    */
     string_ = new char[15];
     string_[0]='\0';
     capacity_=15;
-    size_ = 0;*/
+    size_ = 0;
 }
 
-void String::stingify(){
+void String::stringify(){
     for(int i=0; i<size_; i++){
         std::cout << string_[i];
     }
     std::cout  << std::endl;
 }
-String::String(const String &other) = default;
-/*
 String::String(const String &other){
-	int len = other.length();
-	if(len > max_size_)
-		throw std::length_error("Error");
-		string_ = new char[len+1];
-	 	max_size_= len+1;
-	for (int i = 0; i<len+1; i++){
-	    string_[i] = other.string_[i];
+	size_=other.size_;
+	capacity_=other.capacity_;
+	string_=new char[capacity_];
+	for(int i =0; i<size_;i++){
+		string_[i]=other.string_[i];
 	}
-	string_[len]='\0';
 }
-*/
 
 
 String::String(const char* cstring) {
@@ -77,7 +71,7 @@ String::String(const char* cstring) {
 
 
 String::~String(){
-    delete[] string_;
+    delete[] string_; //delete the array
 }
 
 char* String::c_str() const{
@@ -125,12 +119,12 @@ void String::resize(int size_t, char c){
 
 
 int String::capacity(){
-    return capacity_;
+    return capacity_; // return the capacity (lenght of the array containing the string)
 }
 
 
-bool String::empty(){
-  if (size_==0){
+bool String::empty(){ // return True if empty; False if not
+  if (size_==0 && string_[0]=='\0'){ //check if the stringis empty and the size is 0
     return true;
   }
   else {
@@ -138,10 +132,10 @@ bool String::empty(){
   }
 }
 
-void String::reserve(int size_t){
+void String::reserve(int size_t){ //Change the capacity of the array: if the new size is smaller than the string, the new capacity is the size of the string; if the new size is bigger than the maximum capacity the new capacity is the maximum capacity.
     if(size_t>max_size_){
       std::cout  << "Warning: the maximum capacity for a String is "<< max_size_<< "; The new capacity has been set to"<<max_size_<< std::endl;
-      size_t=100;
+      size_t=max_size_;
     }
     if(size_t< size_){
       std::cout  << "Warning: the String is of size "<< size_ << ". Use resize() if you want to change the size of the String. The capacity has been set to "<< size_<<  std::endl;
@@ -177,17 +171,17 @@ String& String::operator=(const String& str){
     return *this;
 }
 
-String& String::operator=(const char* c){
+String& String::operator=(const char* c){ //Assign the new array to the current object
   int i=0;
-  while(c[i] != '\0'){
+  while(c[i] != '\0'){ //count the size of the array
       i++;
   }
-  if (i>100){
+  if (i>max_capacity_){ //if the array is too long it is cut to the max_capacity_
     std::cout<< "Warning the string is too long"<< std::endl;
-    i=100;
+    i=max_capacity_;
   }
-  if (i>95){
-    capacity_=100;
+  if (i>(max_capacity_-5)){ //if the size is close to the max_capacity_ the capacity is max_capacity
+    capacity_=max_capacity_;
   }
   else{
     capacity_= i+5;
@@ -203,77 +197,17 @@ String& String::operator=(const char* c){
   return *this;
 }
 
-<<<<<<< HEAD
-
-String operator+(const String& str , const char* c){
-  int size_c=0;
-	std::cout<<c<<std::endl;
-  while(c[size_c] != '\0'){
-      size_c++;
-  }
-	int new_size = str.size_ + size_c;
-	std::cout<<size_c<<"  "<<new_size<<std::endl;
-	if(new_size>str.max_size_){
-    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
-    new_size=100;
-  }
-	char* temp= new char[new_size];
-  int i=0;
-  while (i<str.size_){
-    temp[i]=str.string_[i];
-    i++;
-  }
-
-  int j=0;
-  while(i<new_size){
-    temp[i]=c[j];
-		std::cout<<c[j]<<"  i: "<<i<<std::endl;
-		std::cout<<temp<<std::endl;
-    i++;
-    j++;
-  }
-	std::cout<<temp<<std::endl;
-  String new_string(temp);
-	std::cout<<new_string.size_<<std::endl;
-	new_string.stingify();
-	delete[] temp;
-  return new_string;
-}
-
-
-
-=======
->>>>>>> refs/remotes/origin/main
 String operator+(const String& str , char c){
-  if(new_size>str.max_size_){
-    std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
-    new_size=100;
-  }
-  char* temp= new char[20];
-  int i=0;
-  while (i<str.size_){
-    temp[i]=str.string_[i];
-    i++;
-  }
-
-  int j=0;
-  while(i<new_size){
-    temp[i-1]=c[j];
-    i++;
-    j++;
-  }
-  std::cout<<temp[15]<<std::endl;
-  String new_string(temp);
-  new_string.stingify();
-  delete[] temp;
-  return new_string;
+  String s(str);
+    if(s.length() + 1 > s.capacity())
+        s.reserve(s.length()+1);
+    s.resize(1, c);
+    return s;
 }
 
-
-}
 
 String operator+(const String& str, const char* c){
-	int size_c=0;
+  int size_c=0;
   while(c[size_c] != '\0'){
       size_c++;
   }
@@ -297,7 +231,6 @@ String operator+(const String& str, const char* c){
   }
 	std::cout<<temp[15]<<std::endl;
   String new_string(temp);
-	new_string.stingify();
 	delete[] temp;
   return new_string;
 }

@@ -8,7 +8,7 @@
 
 void test_ctor_c_str(){
     String s;
-    s.stingify();
+    s.stringify();
 }
 
 
@@ -31,26 +31,27 @@ void test_capacity(){
 void test_reserve_normal(){
   String s;
   s.reserve(20);
-  s.stingify();
+  s.stringify();
   std::cout  << "La nouvelle capacité est :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_more_than_capacity(){
   String s;
   s.reserve(150);
-  s.stingify();
+  s.stringify();
   std::cout  << "La capicité demandé est 150. La nouvelle capacité est :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_lower_than_size(){
   String s;
   s.reserve(10);
-  s.stingify();
+  s.stringify();
   std::cout  << "La capicité demandé est 10. La nouvelle capacité est :" << s.capacity()<< std::endl;
 }
 
 void test_empty_when_empty(){
-  String s;
+  String s("test");
+  s.clear();
   if(s.empty()){
     std::cout  << "empty"<< std::endl;
   }
@@ -71,45 +72,42 @@ void test_empty_when_not_empty(){
 
 void test_operator_equal_char(){
   String s("Hello World");
-  s.stingify();
+  s.stringify();
   s="Nouveau string";
-  s.stingify();
+  s.stringify();
 }
 
 void test_operator_plus_two_str(){
   String s("Hello World");
   String t("Bonjour");
-  s.stingify();
-<<<<<<< HEAD
+  s.stringify();
   std::cout<< "taille est : "<<s.size()<<std::endl;
-  t.stingify();
+  t.stringify();
   std::cout<< "taille est : "<<t.size()<<std::endl;
   String new_str;
   new_str= s+t;
-  new_str.stingify();
+  new_str.stringify();
   std::cout<<"taille: "<< new_str.size()<<" capacity : "<<new_str.capacity()<<std::endl;
-=======
   s="Nouveau string";
-  s.stingify();
+  s.stringify();
     std::cout<<s.max_size()<<std::endl;
 }
 
 
 void test_ctor_cpy(){
     String s;
-    s.stingify();
+    s.stringify();
     String s_cpy(s);
-    s_cpy.stingify();
->>>>>>> refs/remotes/origin/main
+    s_cpy.stringify();
 }
 
 void test_operator_plus(){
   String s("Hello World");
-  s.stingify();
+  s.stringify();
   std::cout<< "taille est : "<<s.size()<<std::endl;
   String new_str;
   new_str= s+"test";
-  new_str.stingify();
+  new_str.stringify();
   std::cout<<"taille: "<< new_str.size()<<" capacity : "<<new_str.capacity()<<std::endl;
 }
 
@@ -119,8 +117,8 @@ void test_ctor_cstring(){
     std::cout << "taille : " << sizeof(var) << std::endl;
     String s1(var);
     String a("lalalala");
-    s1.stingify();
-    a.stingify();
+    s1.stringify();
+    a.stringify();
 }
 
 void test_length(){
@@ -131,44 +129,41 @@ void test_length(){
 void test_resize(){
     String s("I like to code in C");
     s.resize(2,'+');
-    s.stingify();
+    s.stringify();
 }
 
 void test_operator_eg(){
     String s;
     String s1("I like to code in C");
     s = s1;
-    s.stingify();
+    s.stringify();
 }
-<<<<<<< HEAD
-=======
 
 
 void test_clear(){
     String s;
-    s.stingify();
+    s.stringify();
     s.clear();
-    s.stingify();
+    s.stringify();
     std::cout << s.length() << std::endl;
 }
 
 void test_operator_equal_c(){
   String s;
-  s.stingify();
+  s.stringify();
   s='a';
-  s.stingify();
+  s.stringify();
 
 }
 
 void test_operator_plus_char(){
     String s;
     s = s+'a';
-    s.stingify();
+    s.stringify();
 }
 void test_operator_plus_tab(){
   String s;
   String t;
   String a =s+" test";
-  a.stingify();
+  a.stringify();
 }
->>>>>>> refs/remotes/origin/main
