@@ -2,7 +2,10 @@
 
 #include<iostream>
 
-
+/**
+ * Constructs a string object, initializing its value
+ * @param none
+ */
 String::String(){
     string_ = new char[15];
     for(int i=0;i<sizeof("Hello World");i++){
@@ -19,6 +22,11 @@ String::String(){
     size_ = 0;*/
 }
 
+/**
+ * Print the string.
+ * @param none
+ * @return none
+ */
 void String::stringify(){
     for(int i=0; i<size_; i++){
         std::cout << string_[i];
