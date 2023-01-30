@@ -15,18 +15,18 @@ void test_ctor_c_str(){
 
 
 void test_destructor(){
-  String *s= new String; //sans delete on a une mémoire utilisé a 24 bytes definiteky lost et 15 bytes indirectly lost
-  delete s; // avec le delete on ne perds plus de mémoire
+  String *s= new String; //sans delete on a une mémoire utilisée à 24 bytes definitivement perdue et 15 bytes indirectement perdue
+  delete s; // avec le delete on ne perd plus de mémoire
 }
 
 void test_capacity(){
   String s;
   int capacity=s.capacity();
   if (capacity==15){
-      std::cout  << "La capacité est bien :" << capacity<< std::endl;
+      std::cout  << "The capacity is :" << capacity<< std::endl;
   }
   else{
-      std::cout  << "Mauvaise capacité :" << capacity<< std::endl;
+      std::cout  << "Bad capacity :" << capacity<< std::endl;
   }
 }
 
@@ -34,21 +34,21 @@ void test_reserve_normal(){
   String s;
   s.reserve(20);
   s.stringify();
-  std::cout  << "La nouvelle capacité est :" << s.capacity()<< std::endl;
+  std::cout  << "The capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_more_than_capacity(){
   String s;
   s.reserve(150);
   s.stringify();
-  std::cout  << "La capicité demandé est 150. La nouvelle capacité est :" << s.capacity()<< std::endl;
+  std::cout  << " The capacity requested is 150. The new capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_lower_than_size(){
   String s;
   s.reserve(10);
   s.stringify();
-  std::cout  << "La capicité demandé est 10. La nouvelle capacité est :" << s.capacity()<< std::endl;
+  std::cout  << "The capacity requested is 10. The new capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_empty_when_empty(){
@@ -74,14 +74,14 @@ void test_empty_when_not_empty(){
 void test_operator_equal_char(){
   String s("Hello World");
   s.stringify();
-  s="Nouveau string";
+  s="New string";
   s.stringify();
 }
 
 void test_operator_plus_two_str(){
   String s("Hello World");
   s.stringify();
-  s="Nouveau string";
+  s="New string";
   s.stringify();
     std::cout<<s.max_size()<<std::endl;
 }
@@ -121,8 +121,9 @@ void test_ctor_cstring(){
 
 void test_length(){
     String s2;
-    std::cout << s2.length() << std::endl;
-    std::cout << s2.size() << std::endl;
+    std::cout << "The size of the String with the length function is " << s2.length() << std::endl;
+    std::cout << "It can also be calculated with the size function and is "<< s2.size() << std::endl;
+    std::cout << "It is incredible that two functions can code the same thing!"<< std::endl;
 }
 
 
@@ -146,10 +147,12 @@ void test_operator_eg(){
 
 void test_clear(){
     String s;
-    s.stringify();
+    std::cout<<"Before clearing: "<<std::endl;
+    s.stingify();
     s.clear();
-    s.stringify();
-    std::cout << s.length() << std::endl;
+    std::cout<<"After clearing: "<<std::endl;
+    s.stingify();
+    std::cout << "After clearing, the size is: " << s.length() << std::endl;
 }
 
 void test_operator_equal_c(){
