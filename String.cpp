@@ -2,7 +2,10 @@
 
 #include<iostream>
 
-
+/**
+ * Constructs a string object, initializing its value
+ * @param none
+ */
 String::String(){
   /*
     string_ = new char[15];
@@ -10,6 +13,7 @@ String::String(){
         string_[i] = "Hello World"[i];
     }
     size_ = sizeof("Hello World");
+    capacity_ = 15;
     //std::cout << sizeof("Hello World") << std::endl;
     */
     string_ = new char[15];
@@ -18,6 +22,11 @@ String::String(){
     size_ = 0;
 }
 
+/**
+ * Print the string.
+ * @param none
+ * @return none
+ */
 void String::stringify(){
     for(int i=0; i<size_; i++){
         std::cout << string_[i];
@@ -33,37 +42,44 @@ String::String(const String &other){
 	}
 }
 
-
+/**
+ * Constructs a string object, initializing its value
+ * @param cstring Pointer to an array of characters
+ */
 String::String(const char* cstring) {
   char* temp;
     temp = new char [max_size_];
     int i = 0;
+    int j =0;
     while(cstring[i] != '\0'){
-        if(i == max_size_){
-            i = -1;
-            break;
+        if(i >= max_size_){
+            j = -1;
         }
-        temp[i] = cstring[i];
+        else{
+            temp[i] = cstring[i];
+        }
         i++;
     }
-    if(i == -1)
-        std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
-    else{
-        size_ = i;
-        if(i < max_size_-5){
-            string_ = new char[size_+5];
-            capacity_ = size_+5;
-        }
-
-        else{
-            string_ = new char[max_size_];
-            capacity_ = max_size_;
-        }
-        for (int i = 0; i < size_; ++i){
-          string_[i] = temp[i];
-        }
-        delete [] temp;
+    if(j == -1){
+        std::cout  << "Warning: the maximum capacity for a String is "<< max_size_<< std::endl;
+        size_ = max_size_;
     }
+    else
+        size_ = i;
+    if(i < max_size_-5){
+        string_ = new char[size_+5];
+        capacity_ = size_+5;
+    }
+
+    else{
+        string_ = new char[max_size_];
+        capacity_ = max_size_;
+    }
+    for (int i = 0; i < size_; ++i){
+      string_[i] = temp[i];
+    }
+    delete [] temp;
+
 
 }
 
@@ -87,7 +103,11 @@ int String::size() const {
 	return size_;
 }
 
-
+/**
+ * Returns the length of the string, in terms of bytes.
+ * @param none
+ * @return The number of bytes in the string.
+ */
 int String::length(){
     return size_;
 }
@@ -98,15 +118,31 @@ void String::clear(){
     size_ = 0;
 }
 
-
+/**
+ * Returns the maximum length the string can reach.
+ * @param none.
+ * @return The maximum length the string can reach.
+ */
 int String::max_size(){
     return max_size_;
 }
 
+/**
+ * Resizes the string to a length of n characters.
+ * If n is greater than the current string length, the current content is extended by inserting at the end as many characters as needed to reach a size of n. If c is specified, the new elements are initialized as copies of c, otherwise, they are value-initialized characters (null characters).
+ * @param size_t New string length, expressed in number of characters.
+ * @param c  Character used to fill the new character space added to the string (in case the string is expanded).
+ * @return none
+ */
 void String::resize(int size_t, char c){
+    if(size_t < 0){
+        std::cout  << "Warning: the number of size_t must be more than 0 "<< std::endl;
+        return;
+    }
     int tmp_size = size_t + size_;
+
     if(tmp_size > max_size_)
-        std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
+        std::cout  << "Warning: the maximum capacity for a String is "<< max_size_<< std::endl;
     else{
         if(tmp_size > capacity_)
             reserve(tmp_size);
@@ -178,7 +214,11 @@ String& String::operator=(char c){
 	size_=1;
 	return *this;
 }
-
+/**
+ * Assigns a new value to the string, replacing its current contents.
+ * @param str A string object, whose value is either copied (1) or moved (5) if different from *this (if moved, str is left in an unspecified but valid state).
+ * @return *this
+ */
 String& String::operator=(const String& str){
     delete [] string_;
     char* temp = str.c_str();
@@ -231,7 +271,12 @@ String operator+(const String& str , char c){
     return s;
 }
 
-
+/**
+ * Returns a newly constructed string object with its value being the concatenation of the characters
+ * @param str Argument to the left-hand side of the operator.
+ * @param c Argument to the right-hand side of the operator.
+ * @return A string whose value is the concatenation.
+ */
 String operator+(const String& str, const char* c){
   int size_c=0;
   while(c[size_c] != '\0'){
