@@ -3,9 +3,12 @@
 #include "String.h"
 #include<iostream>
 
+
+
+
 void test_ctor_c_str(){
     String s;
-    s.stingify();
+    s.stringify();
 }
 
 
@@ -28,21 +31,21 @@ void test_capacity(){
 void test_reserve_normal(){
   String s;
   s.reserve(20);
-  s.stingify();
+  s.stringify();
   std::cout  << "The capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_more_than_capacity(){
   String s;
   s.reserve(150);
-  s.stingify();
+  s.stringify();
   std::cout  << " The capacity requested is 150. The new capacity is :" << s.capacity()<< std::endl;
 }
 
 void test_reserve_lower_than_size(){
   String s;
   s.reserve(10);
-  s.stingify();
+  s.stringify();
   std::cout  << "The capacity requested is 10. The new capacity is :" << s.capacity()<< std::endl;
 }
 
@@ -68,25 +71,25 @@ void test_empty_when_not_empty(){
 
 void test_operator_equal_char(){
   String s("Hello World");
-  s.stingify();
+  s.stringify();
   s="New string";
-  s.stingify();
+  s.stringify();
 }
 
 void test_operator_plus_two_str(){
   String s("Hello World");
-  s.stingify();
+  s.stringify();
   s="New string";
-  s.stingify();
+  s.stringify();
     std::cout<<s.max_size()<<std::endl;
 }
 
 
 void test_ctor_cpy(){
     String s;
-    s.stingify();
+    s.stringify();
     String s_cpy(s);
-    s_cpy.stingify();
+    s_cpy.stringify();
 }
 
 void test_cstr(){
@@ -119,16 +122,16 @@ void test_length(){
 
 
 void test_resize(){
-    String s("I like to code in C++");
+    String s("I like to code in C");
     s.resize(2,'+');
-    s.stingify();
+    s.stringify();
 }
 
 void test_operator_eg(){
     String s;
-    String s1("I like to code in C++");
+    String s1("I like to code in C");
     s = s1;
-    s.stingify();
+    s.stringify();
 }
 
 
@@ -144,19 +147,20 @@ void test_clear(){
 
 void test_operator_equal_c(){
   String s;
-  s.stingify();
-  s='c';
-  s.stingify();
+  s.stringify();
+  s='a';
+  s.stringify();
+
 }
 
 void test_operator_plus_char(){
     String s;
     s = s+'a';
-    s.stingify();
+    s.stringify();
 }
 void test_operator_plus_tab(){
   String s;
   String t;
   String a =s+" test";
-  a.stingify();
+  a.stringify();
 }
