@@ -33,6 +33,10 @@ void String::stringify(){
     }
     std::cout  << std::endl;
 }
+/**
+ * Constructs a copy of string object, initializing its value
+ * @param const String by reference
+ */
 String::String(const String &other){
 	size_=other.size_;
 	capacity_=other.capacity_;
@@ -90,6 +94,11 @@ String::~String(){
     delete[] string_; //delete the array
 }
 
+/**
+ * Returns a pointer to an array that contains a null-terminated sequence of characters
+ * @param none
+ * @return A pointer to the c-string representation of the string object's value.
+ */
 char* String::c_str() const{
 	char* cstr = new char[this->size_+1];
 	for(int i=0; i<this->size_;i++){
@@ -98,7 +107,11 @@ char* String::c_str() const{
 	cstr[this->size_] = '\0';
 	return cstr;
 }
-
+/**
+ * Returns the size of the string, in terms of bytes.
+ * @param none
+ * @return The number of bytes in the string.
+ */
 int String::size() const {
 	return size_;
 }
@@ -111,7 +124,11 @@ int String::size() const {
 int String::length(){
     return size_;
 }
-
+/**
+ * Removes all elements from the vector (which are destroyed), leaving the container with a size of 0.
+ * @param none
+ * @return none
+ */
 void String::clear(){
     for(int i=0; i<size_;i++)
         string_[i] = '\0';
