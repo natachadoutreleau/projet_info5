@@ -7,7 +7,7 @@
 
 
 void test_ctor_c_str(){
-    String s;
+    String s("test");
     s.stringify();
 }
 
@@ -50,8 +50,7 @@ void test_reserve_lower_than_size(){
 }
 
 void test_empty_when_empty(){
-  String s("test");
-  s.clear();
+  String s;
   if(s.empty()){
     std::cout  << "empty"<< std::endl;
   }
@@ -128,6 +127,7 @@ void test_length(){
 
 void test_resize(){
     String s("I like to code in C");
+    s.stringify();
     s.resize(2,'+');
     s.stringify();
 }

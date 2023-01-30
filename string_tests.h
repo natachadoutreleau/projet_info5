@@ -15,7 +15,6 @@ void test_ctor_cstring(void);
 void test_length(void);
 void test_resize(void);
 void test_operator_eg(void);
-void test_cstr(void);
 void test_ctor_cpy(void);
 void test_clear(void);
 void test_operator_plus(void);

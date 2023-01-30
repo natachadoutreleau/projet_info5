@@ -109,8 +109,8 @@ void String::resize(int size_t, char c){
         std::cout<<"erreur la séquence doit faire moins de :" << max_size_ << std::endl;
     else{
         if(tmp_size > capacity_)
-            reserve(tmp_size+5);
-        for(int i = 0; i<tmp_size;i++){
+            reserve(tmp_size);
+        for(int i = 0; i<size_t;i++){
             string_[size_ + i ] = c;
         }
         size_ = tmp_size;
@@ -119,12 +119,24 @@ void String::resize(int size_t, char c){
 
 
 int String::capacity(){
+  /**
+ * Returns the size of the storage space currently allocated for the string, expressed in terms of bytes.
+ *
+ * @param none
+ * @return The size of the storage capacity currently allocated for the string.
+ */
     return capacity_; // return the capacity (lenght of the array containing the string)
 }
 
 
-bool String::empty(){ // return True if empty; False if not
-  if (size_==0 && string_[0]=='\0'){ //check if the stringis empty and the size is 0
+bool String::empty(){
+  /**
+ * Returns whether the string is empty (i.e. whether its length is 0
+ *
+ * @param none
+ * @return true if the string length is 0, false otherwise.
+ */
+  if (size_==0 && string_[0]=='\0'){ //check if the strings empty and the size is 0
     return true;
   }
   else {
@@ -132,18 +144,26 @@ bool String::empty(){ // return True if empty; False if not
   }
 }
 
-void String::reserve(int size_t){ //Change the capacity of the array: if the new size is smaller than the string, the new capacity is the size of the string; if the new size is bigger than the maximum capacity the new capacity is the maximum capacity.
-    if(size_t>max_size_){
+void String::reserve(int n){
+  /**
+  * Requests that the string capacity be adapted to a planned change in size to a length of up to n characters.
+  * If n is greater than the maximum capacity, the new capaicty is the maximum capacity
+  * If n si smaller than the string lenght, the new capacity is the string lenght.
+  *
+  * @param n Planned length for the string.
+  * @return none
+  */
+  if(n>max_size_){
       std::cout  << "Warning: the maximum capacity for a String is "<< max_size_<< "; The new capacity has been set to"<<max_size_<< std::endl;
-      size_t=max_size_;
+      n=max_size_;
     }
-    if(size_t< size_){
+    if(n< size_){
       std::cout  << "Warning: the String is of size "<< size_ << ". Use resize() if you want to change the size of the String. The capacity has been set to "<< size_<<  std::endl;
-      size_t= size_;
+      n= size_;
     }
-    capacity_= size_t;
+    capacity_= n;
     char * temp= string_;
-    char * new_str = new char[size_t];
+    char * new_str = new char[n];
     for (int i = 0; i < size_; ++i){
       new_str[i] = temp[i];
     }
@@ -171,17 +191,23 @@ String& String::operator=(const String& str){
     return *this;
 }
 
-String& String::operator=(const char* c){ //Assign the new array to the current object
+String& String::operator=(const char* c){
+  /**
+ * Assigns a new value to the string, replacing its current contents.
+ *
+ * @param c: Pointer to a null-terminated sequence of characters. The sequence is copied as the new value for the string.
+ * @return *this
+ */
   int i=0;
   while(c[i] != '\0'){ //count the size of the array
       i++;
   }
-  if (i>max_capacity_){ //if the array is too long it is cut to the max_capacity_
+  if (i>max_size_){ //if the array is too long it is cut to the max_capacity_
     std::cout<< "Warning the string is too long"<< std::endl;
-    i=max_capacity_;
+    i=max_size_;
   }
-  if (i>(max_capacity_-5)){ //if the size is close to the max_capacity_ the capacity is max_capacity
-    capacity_=max_capacity_;
+  if (i>(max_size_-5)){ //if the size is close to the max_capacity_ the capacity is max_capacity
+    capacity_=max_size_;
   }
   else{
     capacity_= i+5;
@@ -237,6 +263,13 @@ String operator+(const String& str, const char* c){
 
 
 String operator+(const String& str, const String& str2){
+  /**
+ * Returns a newly constructed string object with its value being the concatenation of the characters in str followed by those of str2
+ * If the size of str and str2 is greater than the maximum capacity then str2 is truncated
+ *
+ * @param str and str2 Arguments to the left- and right-hand side of the operator, respectively.
+ * @return new_string: a String object
+ */
   int new_size = str.size_ + str2.size_;
   if(new_size>100){
     std::cout<<"Warning: adding this two string will reach maximum capacity; new string might be truncated"<< std::endl;
