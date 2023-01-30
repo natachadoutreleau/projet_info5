@@ -9,6 +9,8 @@
 void test_ctor_c_str(){
     String s;
     s.stringify();
+    std::cout  << s.length() << std::endl;
+    std::cout  << s.capacity() << std::endl;
 }
 
 
@@ -103,13 +105,18 @@ void test_cstr(){
 
 
 void test_ctor_cstring(){
-    char var[] = "Je suis un gamin et je suis nul en anglais";
-    std::cout << var << std::endl;
+    char var[] = "Le C++ est le meilleur langage.";
     std::cout << "taille : " << sizeof(var) << std::endl;
     String s1(var);
-    String a("lalalala");
+    std::cout <<s1.length()<< std::endl;
+    std::cout <<s1.capacity()<< std::endl;
     s1.stringify();
-    a.stringify();
+    char var2[] = "Le C++ est le meilleur langage. Le C++ est le meilleur langage. Le C++ est le meilleur langage. Le C++ est le meilleur langage.";
+    std::cout << "taille : " << sizeof(var2) << std::endl;
+    String s2(var2);
+    std::cout <<s2.length()<< std::endl;
+    std::cout <<s2.capacity()<< std::endl;
+    s2.stringify();
 }
 
 void test_length(){
@@ -122,6 +129,9 @@ void test_length(){
 
 void test_resize(){
     String s("I like to code in C");
+    s.resize(-1, '+');
+    s.resize(200,'+');
+    s.stringify();
     s.resize(2,'+');
     s.stringify();
 }
@@ -151,7 +161,12 @@ void test_operator_equal_c(){
 }
 
 void test_operator_plus_char(){
-    String s;
+    String str("Hello");
+    str = str + 'x';
+    str.stringify();
+    String a = str + 'z';
+    a.stringify();
+    String s("HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello");
     s = s+'a';
     s.stringify();
 }
