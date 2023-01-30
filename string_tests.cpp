@@ -4,8 +4,6 @@
 #include<iostream>
 
 
-
-
 void test_ctor_c_str(){
     String s;
     s.stringify();
