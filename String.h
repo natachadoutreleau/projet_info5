@@ -5,7 +5,7 @@ class String{
 public:
 
     String();
-    void stingify();
+    void stringify();
     String(const String &other); //copy constructor
 
     String(const char* cstring); // constructor from a c-string

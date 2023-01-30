@@ -18,7 +18,7 @@ String::String(){
     size_ = 0;*/
 }
 
-void String::stingify(){
+void String::stringify(){
     for(int i=0; i<size_; i++){
         std::cout << string_[i];
     }
@@ -229,7 +229,7 @@ String operator+(const String& str, const char* c){
   }
 	std::cout<<temp[15]<<std::endl;
   String new_string(temp);
-	new_string.stingify();
+	new_string.stringify();
 	delete[] temp;
   return new_string;
 }
